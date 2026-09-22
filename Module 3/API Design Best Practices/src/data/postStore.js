@@ -1,3 +1,4 @@
+
 function seedPosts() {
   return [
     { id: 1, title: 'Caching 101', author: 'maya', likes: 0, createdAt: 1 },
@@ -32,14 +33,21 @@ function createPost({ title, author }) {
     likes: 0,
     createdAt: posts.length + 1
   };
+
   posts.push(post);
+
   return post;
 }
 
 function incrementLikes(id) {
   const post = getPostById(id);
-  if (!post) return null;
+
+  if (!post) {
+    return null;
+  }
+
   post.likes += 1;
+
   return post;
 }
 
